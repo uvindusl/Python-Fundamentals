@@ -1,929 +1,854 @@
-
-Python Fundamentals
------
+# Python Fundamentals Cheat-sheet
+---
 
 ## Table of Contents
 
-   - [Arithmetic & Math Operations](#arithmetic-&-math-operations)
-  - [Logical Operators](#logical-operators)
-  - [Conditional Expressions (Ternary Operators)](#conditional-expressions-ternary-operators)
-  - [String Methods](#string-methods)
-  - [String Indexing](#string-indexing)
-  - [Format Specifiers](#format-specifiers)
-  - [While Loops](#while-loops)
-  - [For Loops](#for-loops)
-  - [Countdown Timer Example](#countdown-timer-example)
-  - [Nested Loops](#nested-loops)
-  - [Collections (Lists, Sets, Tuples)](#collections-lists-sets-tuples)
-      - [Lists](#lists)
-      - [Sets](#sets)
-      - [Tuples](#tuples)
-      - [Shopping Cart Program Example](#shopping-cart-program-example)
-  - [2D Collections](#2d-collections)
-  - [Dictionaries](#dictionaries)
-      - [Concession Stand Program Example](#concession-stand-program-example)
-  - [Random Numbers](#random-numbers)
-  - [Functions](#functions)
-      - [Return Statement](#return-statement)
-      - [Default Arguments](#default-arguments)
-      - [Keyword Arguments](#keyword-arguments)
-      - [Arbitrary Arguments (`*args`, `**kwargs`)](#arbitrary-arguments-args-kwargs)
-  - [Iterables](#iterables)
-  - [Membership Operators](#membership-operators)
-  - [List Comprehension](#list-comprehension)
-  - [Match-Case Statement (Switch)](#match-case-statement-switch)
-  - [Modules](#modules)
-  - [Scope Resolution (LEGB)](#scope-resolution-legb)
-  - [`if __name__ == "__main__"`](#if-__name__-==-__main__)
-  - [Object-Oriented Programming (OOP)](#object-oriented-programming-oop)
-      - [Classes and Objects](#classes-and-objects)
-      - [Class Variables](#class-variables)
-      - [Inheritance](#inheritance)
-      - [Multiple Inheritance](#multiple-inheritance)
-      - [Multilevel Inheritance](#multilevel-inheritance)
-      - [`super()` Function](#super-function)
------
+  - [Arithmetic & Math Operations](#1.Arithmetic-&-Math-Operations)  
+  - [Logical Operators](#logical-operators)  
+  - [Conditional Expressions (Ternary Operators)](#conditional-expressions-ternary-operators)  
+  - [String Methods](#string-methods)  
+  - [String Indexing](#string-indexing)  
+  - [Format Specifiers](#format-specifiers)  
+  - [While Loops](#while-loops)  
+  - [For Loops](#for-loops)  
+  - [Countdown Timer Example](#countdown-timer-example)  
+  - [Nested Loops](#nested-loops)  
+  - [Collections (Lists, Sets, Tuples)](#collections-lists-sets-tuples)  
+    - [Lists](#lists)  
+    - [Sets](#sets)  
+    - [Tuples](#tuples)  
+    - [Shopping Cart Program Example](#shopping-cart-program-example)  
+  - [2D Collections](#2d-collections)  
+  - [Dictionaries](#dictionaries)  
+    - [Concession Stand Program Example](#concession-stand-program-example)  
+  - [Random Numbers](#random-numbers)  
+  - [Functions](#functions)  
+    - [Return Statement](#return-statement)  
+    - [Default Arguments](#default-arguments)  
+    - [Keyword Arguments](#keyword-arguments)  
+    - [Arbitrary Arguments (`*args`, `**kwargs`)](#arbitrary-arguments-args-kwargs)  
+  - [Iterables](#iterables)  
+  - [Membership Operators](#membership-operators)  
+  - [List Comprehension](#list-comprehension)  
+  - [Match-Case Statement (Switch)](#match-case-statement-switch)  
+  - [Modules](#modules)  
+  - [Scope Resolution (LEGB)](#scope-resolution-legb)  
+  - [`if __name__ == "__main__"`](#if-__name__-==-__main__)  
+  - [Object-Oriented Programming (OOP)](#object-oriented-programming-oop)  
+    - [Classes and Objects](#classes-and-objects)  
+    - [Class Variables](#class-variables)  
+    - [Inheritance](#inheritance)  
+    - [Multiple Inheritance](#multiple-inheritance)  
+    - [Multilevel Inheritance](#multilevel-inheritance)  
+    - [`super()` Function](#super-function)  
 
-## Arithmetic & Math Operations
+---
 
-Basic arithmetic operations and common mathematical functions using the **`math`** module.
+## 1. Arithmetic & Math Operations
 
-```python
-# Arithmetic & maths
+Python provides built-in functions and the `math` module for common mathematical operations.
 
-x = 3.14
-y = 4
-z = 5
+### Built-in Functions
 
-result = round(x) # 3
-result = abs(y) # if y = -4 output will be 4
-result = pow(4,3) # 64
-result = max(x, y, z) # 5
-result = min(x, y, z) # 3.14
+|Function|Description|Example|Output|
+|---|---|---|---|
+|`round(x)`|Rounds a number to the nearest integer.|`round(3.14)`|`3`|
+|`abs(y)`|Returns the absolute value of a number.|`abs(-4)`|`4`|
+|`pow(base, exp)`|Returns base raised to the power of exp.|`pow(4, 3)`|`64`|
+|`max(x, y, z)`|Returns the largest value among arguments.|`max(3.14, 4, 5)`|`5`|
+|`min(x, y, z)`|Returns the smallest value among arguments.|`min(3.14, 4, 5)`|`3.14`|
 
-# ------------Math Operations---------------------------------------------------
+### Math Module
 
-import math
+To use functions from the `math` module, you need to import it first (`import math`).
 
-x = 9.9
+|Attribute/Function|Description|Example|Output|
+|---|---|---|---|
+|`math.pi`|The mathematical constant pi (pi).|`print(math.pi)`|`3.141592653589793`|
+|`math.e`|The mathematical constant e (Euler's number).|`print(math.e)`|`2.718281828459045`|
+|`math.sqrt(x)`|Returns the square root of `x`.|`math.sqrt(9)`|`3.0`|
+|`math.ceil(x)`|Returns the smallest integer greater than or equal to `x` (rounds up).|`math.ceil(9.1)`|`10`|
+|`math.floor(x)`|Returns the largest integer less than or equal to `x` (rounds down).|`math.floor(9.9)`|`9`|
 
-print(math.pi)
-print(math.e)
-result = math.sqrt(x) # if x = 9 output will be 3.0
-result = math.ceil(x) # if x = 9.1 output will be 10
-result = math.floor(x) # if x = 9.9 output will be 9
+---
+
+## 2. Logical Operators
+
+Logical operators evaluate multiple conditions and return `True` or `False`.
+
+|Operator|Description|Example|
+|---|---|---|
+|`or`|Returns `True` if at least one condition is true.|`if temp > 35 or temp < 0 or is_raining:`|
+|`and`|Returns `True` if all conditions are true.|`if temp >= 28 and is_sunny:`|
+|`not`|Inverts the boolean value of a condition.|`if not is_sunny:`|
+
+**Example Usage:**
+
+Python
+
+```
+temp = 25
+is_sunny = True
+
+if temp >= 28 and is_sunny:
+    print("It is HOT outside")
+elif temp <= 0 and is_sunny:
+    print("It is COLD outside")
+elif 28 > temp > 0 and is_sunny:
+    print("It is Warm outside")
+elif temp >= 28 and not is_sunny:
+    print("It is HOT outside, Cloudy")
+elif temp <= 0 and not is_sunny:
+    print("It is COLD outside, Cloudy")
+elif 28 > temp > 0 and not is_sunny:
+    print("It is Warm outside, Cloudy")
 ```
 
------
+---
 
-## Logical Operators
+## 3. Conditional Expressions (Ternary Operators)
 
-Evaluate multiple conditions (**`or`**, **`and`**, **`not`**).
+A concise way to write if-else statements on a single line.
 
-```python
-# -------------Logical operators---------------------------------------------
+Syntax: X if condition else Y
 
-"""logical operators = evaluate multiple conditions (or, and, not)
-                        or = at least one condition must be True
-                        and = both conditions must be True
-                        not = inverts the condition (not False, not True)"""
-from traceback import print_tb
+**Examples:**
 
-# from example import square
+Python
 
-"""--------------------or-----------------------"""
-# temp = 20
-# is_raining = True
-#
-# if temp > 35 or temp < 0 or is_raining:
-#     print("The outdoor event is cancelled")
-# else:
-#     print("The outdoor event is ok")
+```
+num = 6
+a = 6
+b = 7
+age = 25
+temp = 30
+user_role = "admin"
 
-"""--------------------and-----------------------"""
-# temp = 25
-# is_sunny = True
-#
-# if temp >= 28 and is_sunny:
-#     print("It is HOT outside")
-# elif temp <=0 and is_sunny:
-#     print("It is COLD outside")
-# elif 28 > temp > 0 and is_sunny:
-#     print("It is Warm outside")
-# elif temp >= 28 and not is_sunny:
-#     print("It is HOT outside , Cloudy")
-# elif temp <=0 and not is_sunny:
-#     print("It is COLD outside , Cloudy")
-# elif 28 > temp > 0 and not is_sunny:
-#     print("It is Warm outside , Cloudy")
+print("Positive" if num > 0 else "Negative")         # Output: Positive
+result = "EVEN" if num % 2 == 0 else "ODD"           # result: "EVEN"
+max_num = a if a > b else b                         # max_num: 7
+min_num = a if a < b else b                         # min_num: 6
+status = "Adult" if age >= 18 else "Child"          # status: "Adult"
+weather = "HOT" if temp > 20 else "COLD"            # weather: "HOT"
+access_level = "Full Access" if user_role == "admin" else "Limited Access" # access_level: "Full Access"
 ```
 
------
+---
 
-## Conditional Expressions (Ternary Operators)
+## 4. String Methods & Indexing
 
-A one-line shortcut for the **`if-else`** statement.
+Python strings are sequences of characters that support various built-in methods and indexing for manipulation.
 
-```python
-# -------------Conditional expression---------------------------------------------
+### String Methods
 
-"""conditional expression = A one-line shortcut for the if-else statement (ternary operators)
-                            print or assign one of two values based on a condition
-                            X f condition else Y"""
+|Method|Description|Example (`name = "bro code"`)|Output|
+|---|---|---|---|
+|`len(name)`|Returns the length of the string.|`len(name)`|`8`|
+|`name.find("o")`|Returns the index of the first occurrence of a substring.|`name.find("o")`|`2`|
+|`name.rfind("o")`|Returns the index of the last occurrence of a substring.|`name.rfind("o")`|`7`|
+|`name.capitalize()`|Capitalizes the first letter of the string.|`name.capitalize()`|`"Bro code"`|
+|`name.upper()`|Converts all characters to uppercase.|`name.upper()`|`"BRO CODE"`|
+|`name.lower()`|Converts all characters to lowercase.|`name.lower()`|`"bro code"`|
+|`name.isdigit()`|Returns `True` if all characters are digits, `False` otherwise.|`"123".isdigit()`|`True`|
+|`name.isalpha()`|Returns `True` if all characters are alphabetic, `False` otherwise.|`"abc".isalpha()`|`True`|
+|`name.count("o")`|Counts occurrences of a substring.|`name.count("o")`|`2`|
+|`name.replace("-", " ")`|Replaces occurrences of one substring with another.|`"12-34".replace("-", " ")`|`"12 34"`|
 
-# num = 6
-# a = 6
-# b = 7
-# age = 25
-# temp = 30
-# user_role = "admin"
+### String Indexing
 
-# print("Positive" if num > 0 else "Negative")
-# result = "EVEN" if num % 2 == 0 else "ODD"
-# max_num = a if a > b else b
-# min_num = a if a < b else b
-# status = "Adult" if age >= 18 else "Child"
-# weather = "HOT" if temp > 20 else "COLD"
-# access_level = "Full Access" if user_role == "admin" else "Limited Access"
+Accessing individual characters or substrings using `[start : end : step]`.
+
+|Syntax|Description|Example (`credit_number = "1234-5678-9012-3456"`)|Output|
+|---|---|---|---|
+|`credit_number[index]`|Accesses the character at a specific index.|`credit_number[9]`|`'9'`|
+|`credit_number[start:end]`|Accesses a slice from `start` (inclusive) to `end` (exclusive).|`credit_number[0:4]`|`"1234"`|
+|`credit_number[:end]`|Accesses a slice from the beginning to `end` (exclusive).|`credit_number[:4]`|`"1234"`|
+|`credit_number[start:]`|Accesses a slice from `start` (inclusive) to the end.|`credit_number[5:]`|`"5678-9012-3456"`|
+|`credit_number[-1]`|Accesses the last character.|`credit_number[-1]`|`'6'`|
+|`credit_number[::step]`|Accesses characters with a specified step.|`credit_number[::2]`|`"13579135"`|
+|`credit_number[::-1]`|Reverses the string.|`credit_number[::-1]`|`"6543-2109-8765-4321"`|
+
+**Example: Validate User Input**
+
+This example demonstrates using string methods and conditional statements to validate a username.
+
+Python
+
+```
+username = input("Enter username: ")
+
+if len(username) >= 12:
+    print("username is no more than 12 characters")
+elif username.find(" ") != -1:
+    print("username must not contain spaces")
+elif not username.isalpha():
+    print("username must not contain digits")
+else:
+    print(f"Welcome {username}!")
 ```
 
------
+---
 
-## String Methods
+## 5. Format Specifiers
 
-Common methods for manipulating strings.
+Format specifiers are used with f-strings or `str.format()` to control the output formatting of values.
 
-```python
-# ---------------------String methods-----------------------------------------
+Syntax: `{value:flags}`
 
-# len(name) get length of a string
-# name.find("") find the element and print index (first occurrence)
-# name.rfind("") last occurrence if can't find it will give -1
-# name.capitalized() this will capitalized first letter
-# name.upper() make all of characters upper case
-# name.lower() make all characters lower case
-# name.isdigit() will return true if string only contain digits
-# name.isalpha() will return true or false depending only alphabetical char
-# name.count("o") count how many char in the string
-# name.replace("-" , " ")
+|Flag|Description|Example (`price = 3.14159`)|Output|
+|---|---|---|---|
+|`.(number)f`|Rounds to `number` decimal places (fixed point).|`f"${price:.2f}"`|`"$3.14"`|
+|`:(number)`|Allocates `number` spaces.|`f"${price:10f}"`|`"$ 3.141590"`|
+|`:03`|Allocates and zero-pads to `3` spaces.|`f"${1:03d}"`|`"$001"`|
+|`:<`|Left-justifies the value.|`f"${price:<10.2f}"`|`"$3.14 "`|
+|`:>`|Right-justifies the value.|`f"${price:>10.2f}"`|`" $3.14"`|
+|`:^`|Centers the value.|`f"${price:^10.2f}"`|`" $3.14 "`|
+|`:+`|Uses a plus sign to indicate positive values.|`f"${price:+.2f}"`|`"+$3.14"`|
+|`:=`|Places the sign to the leftmost position.|`f"${-price:=+10.2f}"`|`"-$ 3.14"`|
+|`:`|Inserts a space before positive numbers.|`f"${price: .2f}"`|`" $3.14"`|
+|`:,`|Adds comma separators for thousands.|`f"${1234567.89:,}"`|`"$1,234,567.89"`|
+
+**Example Usage:**
+
+Python
+
+```
+price1 = 3.14159
+price2 = -987.65
+price3 = 12.34
+
+print(f"Price 1 is ${price1:.1f}")  # Price 1 is $3.1
+print(f"Price 2 is ${price2:.2f}")  # Price 2 is $-987.65
+print(f"Price 3 is ${price3:.2f}")  # Price 3 is $12.34
+
+print(f"Price 1 is ${price1:,}")    # Price 1 is $3.14159
+print(f"Price 2 is ${price2:,}")    # Price 2 is $-987.65
+print(f"Price 3 is ${price3:,}")    # Price 3 is $12.34
 ```
 
-### Exercise: Validate User Input
+---
 
-An example to validate user input for a username.
+## 6. Loops
 
-```python
-# ------------------Exercise------------------------------------------------
+Loops are used to execute a block of code repeatedly.
 
-# validate user input exercise
-# 1. username is no more than 12 chars
-# 2. username must not contain spaces
-# 3. username must not contain digits
+### While Loop
 
-# username = input("Enter username: ")
-#
-# if len(username) >= 12:
-#     print("username is no more than 12 characters")
-# elif username.find(" ") != -1:
-#     print("username must not contain spaces")
-# elif not username.isalpha():
-#     print("username must not contain digits")
-# else:
-#     print(f"Welcome {username}!")
+Executes code **WHILE** a condition remains true.
+
+Python
+
+```
+# Basic example
+name = ""
+while name == "":
+    print("You did not enter a name")
+    name = input("Enter your name: ")
+print(f"Hello, {name}!")
+
+# Using logical operators
+food = input("Enter a food you like (q to quit): ")
+while not food == "q":
+    print(f"You like {food}")
+    food = input("Enter another food you like (q to quit): ")
+print("Bye")
+
+# Input validation
+num = int(input("Enter a # between 1 - 10: "))
+while num < 1 or num > 10: # Corrected from num > 1 or num > 10
+    print(f"{num} is not valid")
+    num = int(input("Enter a # between 1 - 10: "))
+print(f"Your number is {num}")
 ```
 
------
+### For Loop
 
-## String Indexing
+Executes a block of code a fixed number of times, iterating over a range, string, or sequence.
 
-Accessing elements of a sequence using **`[]`** (indexing operator).
+Python
 
-```python
-# -----------------String indexing---------------------------------------------
+```
+# Iterating over a range
+for x in range(1, 11): # Prints 1 to 10
+    print(x)
 
-"""indexing = accessing elements of a sequence using [] (indexing operator)
-                [start : end : step]"""
+# Reversed range
+for x in reversed(range(1, 11)): # Prints 10 down to 1
+    print(x)
+print("HAPPY NEW YEAR!")
 
+# Stepping in a range
+for x in range(3, 31, 3): # Prints multiples of 3 up to 30
+    print(x)
 
-# credit_number = "1234-5678-9012-3456"
+# Iterating over a string
+credit_number = "1234-5678-9012-3456"
+for x in credit_number:
+    print(x)
 
-# print(credit_number[9]) 9th digit
-# print(credit_number[0:4]) 0 to 4th digit
-# print(credit_number[:4]) same as above
-# print(credit_number[5:]) print 5th digit to last index
-# print(credit_number[-1]) last index
-# print(credit_number[0:4])
-# print(credit_number[::2]) print every second char in the string
+# `continue` statement: skips the current iteration
+for x in range(1, 21):
+    if x == 13:
+        continue
+    else:
+        print(x)
 
-# last_digits = credit_number[-4:]
-# print(f"XXXX-XXXX-XXXX-{last_digits}")
-
-"""backwords"""
-# credit_number = credit_number[::-1]
-# print(credit_number)
+# `break` statement: terminates the loop entirely
+for x in range(1, 21):
+    if x == 13:
+        break
+    else:
+        print(x)
 ```
 
------
+**Countdown Timer Example:**
 
-## Format Specifiers
+Python
 
-Format a value based on flags inserted into f-strings.
-
-```python
-# -------------------format specifiers--------------------------------------
-
-"""format specifiers = {value:flags} format a value based on what flags are inserted
-
- .(number)f = round to that many decimal places (fixed point)
- :(number) = allocate that many spaces
- :03 = allocate and zero pad that many spaces
- :< = left justify
- :> = right justify
- :^ = center justify
- :+ = use a plus sign to indicate postive value
- := = place sign to leftmost position
- : = insert a space before positive number
- :, = comma separator"""
-
-# price1 = 3.14159
-# price2 = -987.65
-# price3 = 12.34
-
-# print(f"Price 1 is ${price1:.1f}")
-# print(f"Price 2 is ${price2:.2f}")
-# print(f"Price 3 is ${price3:.2f}")
-
-# print(f"Price 1 is ${price1:,}")
-# print(f"Price 2 is ${price2:,}")
-# print(f"Price 3 is ${price3:,}")
 ```
-
------
-
-## While Loops
-
-Execute some code WHILE some condition remains true.
-
-```python
-# -------------------While loop--------------------------------------
-
-""" while loop = execute some code WHILE some condition remains true"""
-
-# name = input("Enter your name: ")
-#
-# while name == "":
-#     print("You did not enter a name")
-#     name = input("Enter your name: ")
-#
-# print(f"Hello, {name}!")
-
-"""logical operators"""
-
-# food = input("Enter a food you like (q to quite): ")
-#
-# while not food == "q":
-#     print(f"You like {food}")
-#     food = input("Enter another food you like (q to quite): ")
-#
-# print("Bye")
-
-# num = int(input("Enter a # between 1 - 10"))
-#
-# while num > 1 or num > 10:
-#     print(f"{num} is not valid")
-#     num = int(input("Enter a # between 1 - 10"))
-#
-# print(f"Your number is {num}")
-```
-
------
-
-## For Loops
-
-Execute a block of code a fixed number of times. You can iterate over a range, string, sequence, etc.
-
-```python
-# -------------------for loop--------------------------------------
-
-""" for loops = execute a block of code a fixed number of times.
-                You can iterate over a range, string, sequence, etc"""
-
-# for x in range(1, 11):
-#     print(x)
-
-# for x in reversed(range(1, 11)):
-#     print(x)
-#
-# print("HAPPY NEW YEAR!")
-
-# for x in range(3, 31, 3):
-#     print(x)
-
-# credit_number = "1234-5678-9012-3456"
-#
-# for x in credit_number:
-#     print(x)
-
-# for x in range(1, 21):
-#     if x == 13:
-#         continue
-#     else:
-#         print(x)
-
-# for x in range(1, 21):
-#     if x == 13:
-#         break
-#     else:
-#         print(x)
-```
-
------
-
-## Countdown Timer Example
-
-A simple countdown timer using a **`for`** loop and **`time.sleep()`**.
-
-```python
-# ----------------------countdown timer-----------------------------------
-
 import time
 
-# my_time = int(input("Enter the time in seconds: "))
-#
-# for x in range(my_time, 0, -1):
-#     seconds = x % 60
-#     minutes = int(x / 60) % 60
-#     hours = int(x / 3600)
-#     print(f"{hours:02}:{minutes:02}:{seconds:02}")
-#     time.sleep(1)
-#
-# print("TIME'S UP!")
+my_time = int(input("Enter the time in seconds: "))
+
+for x in range(my_time, 0, -1):
+    seconds = x % 60
+    minutes = int(x / 60) % 60
+    hours = int(x / 3600)
+    print(f"{hours:02}:{minutes:02}:{seconds:02}")
+    time.sleep(1)
+
+print("TIME'S UP!")
 ```
 
------
+### Nested Loops
 
-## Nested Loops
+A loop within another loop. The inner loop completes all its iterations for each single iteration of the outer loop.
 
-A loop within another loop (outer, inner).
+Python
 
-```python
-# ----------------------nested loop-----------------------------------
+```
+# Simple nested loop
+for x in range(3): # Outer loop iterates 3 times
+    for y in range(1, 10): # Inner loop iterates 9 times for each outer iteration
+        print(y, end="")
+    print() # Newline after each inner loop completes
 
-"""nested loop = A loop within another loop (outer, inner)
-                outer loop:
-                    inner loop:"""
+# Creating a shape with nested loops
+rows = int(input("Enter the # of rows: "))
+columns = int(input("Enter the # of columns: "))
+symbol = input("Enter the symbol to use: ")
 
-# for x in range(3):
-#     for y in range(1, 10):
-#         print(y, end="")
-#     print()
-
-# rows = int(input("Enter the # of rows: "))
-# columns = int(input("Enter the # of columns: "))
-# symbol = input("Enter the symbol to use: ")
-#
-# for x in range(rows):
-#     for y in range(columns):
-#         print(symbol, end="")
-#     print()
+for x in range(rows):
+    for y in range(columns):
+        print(symbol, end="")
+    print()
 ```
 
------
+---
 
-## Collections (Lists, Sets, Tuples)
+## 7. Collections: Lists, Sets, and Tuples
 
-A single 'variable' used to store multiple values.
+Collections are single variables used to store multiple values.
 
-### Lists
+### List (`[]`)
 
-**Ordered** and **changeable**. Duplicates are allowed. Represented by **`[]`**.
+- **Ordered** and **changeable**.
+    
+- Allows **duplicates**.
+    
 
-```python
-# ----------------------lists, sets and tuples-----------------------------------
+Python
 
-"""Collection = single 'variable' used to store multiple values
-    List = [] ordered and changeable. Duplicate OK
-    Set = {} unordered and immutable, but Add/Remove OK. NO duplicate
-    Tuple = () ordered and unchangeable. Duplicate OK. FASTER"""
+```
+fruits = ["apple", "orange", "banana", "coconut"]
 
-#           --------list----------
+print(fruits[::-1])      # Reverse the list: ['coconut', 'banana', 'orange', 'apple']
+print(len(fruits))       # Length of the list: 4
+print("apple" in fruits) # Check if element exists: True
 
-# fruits = ["apple" , "orange" , "banana" , "coconut"]
+for fruit in fruits:
+    print(fruit)
 
-# print(fruits[::-1])
-# print(len(fruits))
-# print("apple" in fruits)
-
-# for fruit in fruits:
-#     print(fruit)
-
-# fruits[0] = "pineapple" # replace
-# fruits.append("pineapple")
-# fruits.remove("apple")
-# fruits.sort() alphabetical order
-# fruits.reverse() reverse list
-# fruits.clear() clear list
-# print(fruits.index("apple")) print index
-# print(fruits.count("apple")) count apple
-
-# print(fruits)
+fruits[0] = "pineapple"  # Replace element at index 0
+fruits.append("grape")   # Add element to the end
+fruits.remove("orange")  # Remove first occurrence of "orange"
+fruits.sort()            # Sorts the list alphabetically/numerically
+fruits.reverse()         # Reverses the order of elements
+fruits.clear()           # Removes all elements
+print(fruits.index("banana")) # Get index of "banana"
+print(fruits.count("apple"))  # Count occurrences of "apple"
 ```
 
-### Sets
+### Set (`{}`)
 
-**Unordered** and **immutable**, but elements can be added/removed. **No duplicates** allowed. Represented by **`{}`**.
+- **Unordered** and **immutable** (elements themselves cannot be changed after creation), but elements can be **added/removed**.
+    
+- **No duplicates**.
+    
 
-```python
-#           --------set----------
+Python
 
-# fruits = {"apple" , "orange" , "banana" , "coconut"}
+```
+fruits = {"apple", "orange", "banana", "coconut"}
 
-# print(len(fruits))
-# print("apple" in fruits)
+print(len(fruits))       # Length of the set
+print("apple" in fruits) # Check if element exists
 
-# fruits.add("pineapple")
-# fruits.remove("apple")
-# fruits.pop() random element will be remove
-# fruits.clear()
+fruits.add("pineapple")  # Add a new element
+fruits.remove("apple")   # Remove an element
+fruits.pop()             # Removes a random element
+fruits.clear()           # Clears all elements
 
-# for fruit in fruits:
-#     print(fruit)
-
-
-# print(fruits)
+for fruit in fruits:
+    print(fruit)
 ```
 
-### Tuples
+### Tuple (`()`)
 
-**Ordered** and **unchangeable**. Duplicates are allowed. Generally **faster** than lists for iteration. Represented by **`()`**.
+- **Ordered** and **unchangeable** (immutable).
+    
+- Allows **duplicates**.
+    
+- Generally **faster** than lists for iteration when content doesn't need to change.
+    
 
-```python
-#           --------Tuple----------
+Python
 
-# fruits = ("apple" , "orange" , "banana" , "coconut")
+```
+fruits = ("apple", "orange", "banana", "coconut")
 
-# print(len(fruits))
-# print("apple" in fruits)
+print(len(fruits))       # Length of the tuple
+print("apple" in fruits) # Check if element exists
 
-# fruits.index("apple")
-# fruits.count("apple")
+print(fruits.index("apple")) # Get index of "apple"
+print(fruits.count("apple")) # Count occurrences of "apple"
 
-# print(fruits)
-
-# for fruit in fruits:
-#     print(fruit)
+for fruit in fruits:
+    print(fruit)
 ```
 
-### Shopping Cart Program Example
+### Shopping Cart Program (List Example)
 
-A practical example demonstrating list usage for a simple shopping cart.
+Python
 
-```python
-#           --------shopping cart program----------
+```
+foods = []
+prices = []
+total = 0
 
-# foods = []
-# prices = []
-# total = 0
-#
-# while True:
-#     food = input("Enter a food to buy (q to quit): ")
-#     if food.lower() == "q":
-#         break
-#     else:
-#         price = float(input(f"Enter the price of a {food}: $"))
-#         foods.append(food)
-#         prices.append(price)
-#
-# print("----- YOUR CART ------")
-#
-# for food in foods:
-#     print(food, end=" ")
-#
-# for price in prices:
-#     total += price
-#
-# print()
-# print(f"Your total is: ${total: }")
+while True:
+    food = input("Enter a food to buy (q to quit): ")
+    if food.lower() == "q":
+        break
+    else:
+        price = float(input(f"Enter the price of a {food}: $"))
+        foods.append(food)
+        prices.append(price)
+
+print("----- YOUR CART ------")
+for food in foods:
+    print(food, end=" ")
+
+for price in prices:
+    total += price
+
+print()
+print(f"Your total is: ${total:.2f}")
 ```
 
------
+---
 
-## 2D Collections
+## 8. 2D Collections (Nested Lists/Tuples)
 
-Lists of lists (or tuples of tuples, etc.) to represent grids or tables.
+Collections can be nested to represent 2D structures (like matrices or grids).
 
-```python
-# ----------------------2D collections-----------------------------------
+Python
 
-# for this also we can use tuple and set
+```
+fruits =     ["apple", "banana", "cherry"]
+vegetables = ["celery", "carrot", "potatoes"]
+meats =      ["chicken", "fish", "turkey"]
 
-# fruits =     ["apple", "banana", "cherry"]
-# vegetables = ["celery" , "carrot" , "potatoes"]
-# meats =      ["chicken" , "fish" , "turkey"]
-#
-# groceries = [fruits, vegetables, meats]
+groceries = [fruits, vegetables, meats] # A list of lists
 
-# the below one is same as above one
+# Accessing elements: [row_index][column_index]
+print(groceries[1][0]) # Output: 'celery'
 
-# groceries = [["apple", "banana", "cherry"],
-#              ["celery" , "carrot" , "potatoes"],
-#              ["chicken" , "fish" , "turkey"]]
+# Iterating through 2D collection
+for collection in groceries:
+    for food in collection:
+        print(food, end=" ")
+    print()
 
+# Example: Number Pad (using tuple of tuples)
+num_pad = ((1,2,3),
+           (4,5,6),
+           (7,8,9),
+           ("*", 0, "#"))
 
-# print(groceries[1][0]) # first [0] is row and second [0] is column
-
-# for collection in groceries:
-#     for food in collection:
-#         print(food, end=" ")
-#     print()
-
-#    ----- activity ---------
-
-# num_pad = ((1,2,3),
-#            (4,5,6),
-#            (7,8,9),
-#            ("*", 0, "#"))
-#
-# for row in num_pad:
-#     for num in row:
-#         print(num, end=" ")
-#     print()
+for row in num_pad:
+    for num in row:
+        print(num, end=" ")
+    print()
 ```
 
------
+---
 
-## Dictionaries
+## 9. Dictionary (`{key: value}`)
 
-A collection of **`{key:value}`** pairs. **Ordered** and **changeable**. **No duplicate keys**.
+A collection of **key-value pairs**.
 
-```python
-# ----------------------Dictionary-----------------------------------
+- **Ordered** (as of Python 3.7+) and **changeable**.
+    
+- **No duplicate keys**.
+    
 
-"""dictionary = a collection of {key:value} pairs
-                ordered and changeable. NO duplicate"""
+Python
 
-# capitals = {"USA": "Washington D.C",
-#             "India": "New Delhi",
-#             "China": "Beijing",
-#             "Russia": "Moscow"}
+```
+capitals = {"USA": "Washington D.C",
+            "India": "New Delhi",
+            "China": "Beijing",
+            "Russia": "Moscow"}
 
-# print(capitals.get("India"))
+print(capitals.get("India")) # Get value by key: New Delhi
 
-# if capitals.get("Japan"):
-#     print("That capital Exists")
-# else:
-#     print("That capital doesn't exist")
+# Check if a key exists
+if capitals.get("Japan"):
+    print("That capital Exists")
+else:
+    print("That capital doesn't exist")
 
-# capitals.update({"Germany": "Berlin"})
-# capitals.update({"USA": "Detroit"})
-# capitals.pop("China")
-# capitals.popitem() remove latest item in dict
-# capitals.clear()
+capitals.update({"Germany": "Berlin"}) # Add new key-value pair
+capitals.update({"USA": "Detroit"})   # Update value for existing key
+capitals.pop("China")                 # Remove item by key
+capitals.popitem()                    # Remove the last inserted item
+capitals.clear()                      # Clear all items
 
-# keys = capitals.keys()
+# Iterating through keys, values, or items
+keys = capitals.keys()
+for key in capitals.keys():
+    print(key)
 
-# for key in capitals.keys():
-    # print(key)
+values = capitals.values()
+for value in capitals.values():
+    print(value)
 
-# values = capitals.values()
-# print(values)
-
-# for value in capitals.values():
-#     print(value)
-
-# items = capitals.items()
-# print(items)
-
-# for key, value in capitals.items():
-#     print(f"{key}: {value}")
+items = capitals.items() # Returns a view of (key, value) pairs
+for key, value in capitals.items():
+    print(f"{key}: {value}")
 ```
 
-### Concession Stand Program Example
+### Concession Stand Program (Dictionary Example)
 
-A program simulating a concession stand using a dictionary for the menu.
+Python
 
-```python
-#    ----- Concession stand program ---------
+```
+menu = {"pizza": 3.00,
+        "nachos": 4.50,
+        "popcorn": 6.00,
+        "fries": 2.50,
+        "chips": 1.00,
+        "pretzel": 3.50,
+        "soda": 3.00,
+        "lemonade": 4.25}
 
-# menu = {"pizza": 3.00,
-#         "nachos": 4.50,
-#         "popcorn": 6.00,
-#         "fries": 2.50,
-#         "chips": 1.00,
-#         "pretzel": 3.50,
-#         "soda" : 3.00,
-#         "lemonade": 4.25}
-#
-# cart = []
-# total = 0
-#
-# print("---------- Menu ------------")
-# for key, value in menu.items():
-#     print(f"{key:10}: ${value:.2f}")
-# print("----------------------------")
-#
-# while True:
-#     food = input("Select an item (q to quite): ").lower()
-#     if food == "q":
-#         break
-#     elif menu.get(food) is not None:
-#         cart.append(food)
-#
-# print("-------- YOUR ORDER ----------")
-# for food in cart:
-#     total += menu.get(food)
-#     print(food, end="")
-#
-# print()
-# print(f"Total is: ${total:.2f}")
+cart = []
+total = 0
+
+print("---------- Menu ------------")
+for key, value in menu.items():
+    print(f"{key:10}: ${value:.2f}")
+print("----------------------------")
+
+while True:
+    food = input("Select an item (q to quit): ").lower()
+    if food == "q":
+        break
+    elif menu.get(food) is not None: # Check if food item exists in menu
+        cart.append(food)
+    else:
+        print("Invalid item. Please choose from the menu.")
+
+print("-------- YOUR ORDER ----------")
+for food in cart:
+    total += menu.get(food)
+    print(food, end=" ")
+
+print()
+print(f"Total is: ${total:.2f}")
 ```
 
------
+---
 
-## Random Numbers
+## 10. Random Numbers
 
-Using the **`random`** module for generating random numbers and choices.
+The `random` module provides functions for generating random numbers and making random choices.
 
-```python
-# ----------------------Random Numbers-----------------------------------
+Python
 
+```
 import random
 
-# low = 1
-# high = 100
-# options = ("rock", "paper", "scissor")
-# cards = ["2", "3" , "4" , "5" , "6" , "7" , "8" , "9", "10", "J", "Q", "K", "A"]
+low = 1
+high = 100
+options = ("rock", "paper", "scissor")
+cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
 
-# number = random.randint(low, high)
-# number = random.random() random float
-# option = random.choice(options)
-# random.shuffle(cards)
-#
-# print(cards)
+number_int = random.randint(low, high) # Random integer between low (inclusive) and high (inclusive)
+number_float = random.random()         # Random float between 0.0 (inclusive) and 1.0 (exclusive)
+option_choice = random.choice(options) # Random choice from a sequence
+random.shuffle(cards)                  # Shuffles a list in place
+
+print(f"Random int: {number_int}")
+print(f"Random float: {number_float}")
+print(f"Random option: {option_choice}")
+print(f"Shuffled cards: {cards}")
 ```
 
------
+---
 
-## Functions
+## 11. Functions
 
-A block of reusable code. Use **`()`** after the function name to invoke it.
+Functions are blocks of reusable code designed to perform a specific task. They enhance code organization and reusability.
 
-```python
-# ----------------------Functions-----------------------------------
+### Basic Function Definition
 
-"""functions = A block of reusable code
-                place () after the function name to invoke it"""
+Python
+
+```
+def greet(name):
+    print(f"Hello, {name}!")
+
+greet("Alice") # Invoking the function
 ```
 
 ### Return Statement
 
-Used to end a function and send a result back to the caller.
+The `return` statement is used to end a function and send a result back to the caller.
 
-```python
-# ----------------------return--------------------------------------
+Python
 
-"""return = statement used to end a function
-            and send a result back to the caller"""
+```
+def add(a, b):
+    return a + b
+
+sum_result = add(5, 3) # sum_result will be 8
+print(sum_result)
 ```
 
 ### Default Arguments
 
-A default value for a parameter that is used when that argument is omitted. Makes functions more flexible.
+Parameters can have default values. If an argument is omitted during the function call, the default value is used. This makes functions more flexible.
 
-```python
-# ----------------------default argument------------------------------
+**Order of Arguments:**
 
-"""default argument = a default value for a certain parameter
-                        default is used when that argument is omitted
-                        make your function more flexible, reduce # of arguments
-                        1. Positional, 2. Default, 3. Keyword, 4. arbitrary"""
+1. Positional Arguments
+    
+2. Default Arguments
+    
+3. Keyword Arguments
+    
+4. Arbitrary Arguments (`*args`, `**kwargs`)
+    
 
-#  -------- default ----------------
+Python
 
-# def net_price(list_price, discount=0, tax=0.05):
-#     return list_price * discount + tax
-#
-# print(net_price(500))
-# print(net_price(100, 50))
-# print(net_price(100, 50,0.10))
+```
+def net_price(list_price, discount=0, tax=0.05):
+    return list_price * (1 - discount) * (1 + tax)
+
+print(net_price(500))         # Output: 525.0 (discount=0, tax=0.05)
+print(net_price(100, 0.10))   # Output: 94.5 (discount=0.10, tax=0.05)
+print(net_price(100, 0.10, 0.08)) # Output: 97.2 (discount=0.10, tax=0.08)
 ```
 
 ### Keyword Arguments
 
-An argument preceded by an identifier. Helps with readability and the order of arguments doesn't matter.
+Arguments preceded by an identifier (`parameter=value`). This improves readability and allows the order of arguments to be flexible.
 
-```python
-#  -------- keyword ----------------
+Python
 
-"""keyword argument = an argument preceded by an identifier
-                      helps with readability
-                      order of arguments doesn't matter"""
+```
+def get_phone(country, area, first, last):
+    return f"+{country}-{area}-{first}-{last}"
 
-
-# print("1", "2", "3", "4", "5", sep="-")
-
-# def get_phone(country, area, first, last):
-#     return f"{country}-{area}-{first}-{last}"
-#
-# phone_num = get_phone(country=1,area=123,first=465,last=7890)
-# print(phone_num)
+phone_num = get_phone(country=1, area=123, first=456, last=7890)
+print(phone_num) # Output: +1-123-456-7890
 ```
 
-### Arbitrary Arguments (`*args`, `**kwargs`)
+### Arbitrary Arguments (`*args` and `**kwargs`)
 
-  - **`*args`**: Allows you to pass multiple non-keyworded (positional) arguments as a tuple.
-  - **`**kwargs`**: Allows you to pass keyworded arguments as a dictionary.
-  - **`*`**: Also used as an unpacking operator for sequences.
+- `*args`: Allows you to pass a variable number of non-keyword arguments (as a tuple).
+    
+- `**kwargs`: Allows you to pass a variable number of keyword arguments (as a dictionary).
+    
 
-<!-- end list -->
+Python
 
-```python
-#  -------- arbitrary ----------------
+```
+# *args example
+def add(*nums):
+    total = 0
+    for arg in nums:
+        total += arg
+    return total
 
-"""*args = allows you to pass multiple non-key arguments
-   **kwargs = allows you to pass keyword arguments
-   * unpacking operator"""
+print(add(1, 2, 3))    # Output: 6
+print(add(10, 20, 30, 40)) # Output: 100
 
-# -- *args --
+# **kwargs example
+def print_address(**kwargs):
+    for key, value in kwargs.items(): # Corrected from .keys()
+        print(f"{key}: {value}")
 
-# def add(*nums):
-#     total = 0
-#     for arg in nums:
-#         total += arg
-#     return total
-#
-# print(add(1,2))
+print_address(street="123 Fake St", apt="100", city="Ragama", state="MI", zip="12345")
 
-# -- **kwargs --
+# Combined *args and **kwargs
+def shipping_label(*args, **kwargs):
+    for arg in args:
+        print(arg, end=" ")
+    print()
+    print(f"Street: {kwargs.get('street')}")
+    print(f"City: {kwargs.get('city')}")
+    print(f"State: {kwargs.get('state')}")
+    print(f"Zipcode: {kwargs.get('zipcode')}")
 
-# def print_address(**kwargs):
-#     for key, value in kwargs.keys():
-#         print(f"{key}: {value}")
-#
-# print_address(street="123 Fake St",apt="100", city="Ragama",state="MI", zip="12345")
-
-# def shipping_label(*args, **kwargs):
-#     for arg in args:
-#         print(arg, end=" ")
-#     print()
-#     print(f"{kwargs.get('street')}")
-#     print(f"{kwargs.get('city')}")
-#     print(f"{kwargs.get('state')}")
-#     print(f"{kwargs.get('zipcode')}")
-#
-# shipping_label("Dr.", "Spongebob", "Squarepants", "III",
-#                street="123 Fake St.",
-#                apt="100",
-#                city="Detroit",
-#                state="MI",
-#                zip="54321")
+shipping_label("Dr.", "Spongebob", "Squarepants", "III",
+               street="123 Fake St.",
+               apt="100",
+               city="Detroit",
+               state="MI",
+               zipcode="54321")
 ```
 
------
+---
 
-## Iterables
+## 12. Iterables
 
-An object/collection that can return its elements one at a time, allowing it to be iterated over in a loop.
+An iterable is an object or collection that can return its elements one at a time, allowing it to be iterated over in a loop (e.g., lists, tuples, strings, dictionaries).
 
-```python
-# ----------------------Iterables------------------------------
+Python
 
-"""Iterables = An object/collection that can return its elements one at a time,
-               allowing it to be iterated over in a loop"""
+```
+numbers = [1, 2, 3, 4, 5]
 
-# numbers = [1,2,3,4,5]
-#
-# for number in reversed(numbers):
-#     print(number, end=" - ")
+for number in reversed(numbers):
+    print(number, end=" - ") # Output: 5 - 4 - 3 - 2 - 1 -
+print()
 ```
 
------
+---
 
-## Membership Operators
+## 13. Membership Operators
 
 Used to test whether a value or variable is found in a sequence (string, list, tuple, set, or dictionary).
 
-```python
-# ----------------------Membership operators--------------------
+|Operator|Description|
+|---|---|
+|`in`|Returns `True` if found.|
+|`not in`|Returns `True` if not found.|
 
-"""Membership operators = used to test whether a value or variable is found in a sequence
-                          (string, list , tuple, set or dictionary)
-                          1. in
-                          2. not in"""
+Python
 
-# word = "APPLE"
-#
-# letter = input("Guess a letter in the secret word")
+```
+word = "APPLE"
+letter = input("Guess a letter in the secret word: ").upper()
 
-# if letter in word:
-#     print(f"{letter} is in the word")
-# else:
-#     print(f"{letter} is not in the word")
-
-# if letter not in word:
-#     print(f"{letter} is not in the word")
-# else:
-#     print(f"{letter} is in the word")
+if letter in word:
+    print(f"{letter} is in the word")
+else:
+    print(f"{letter} is not in the word")
 ```
 
------
+---
 
-## List Comprehension
+## 14. List Comprehension
 
-A concise way to create lists in Python. Compact and often easier to read than traditional loops.
+A concise way to create lists in Python, offering a more compact and readable syntax than traditional loops.
 
-```python
-# ----------------------List comprehension--------------------
+Syntax: [expression for value in iterable if condition]
 
-"""List comprehension = A concise way to create lists in python
-                        compact and easier to read than traditional loops
-                        [expression for value in iterable if condition]"""
+Python
 
-# doubles = [x*2 for x in range(1,11)]
-# triples = [y*3 for y in range(1,11)]
-# squares = [z*z for z in range(1,11)]
-#
-# print(squares)
-# print(triples)
-# print(doubles)
+```
+# Basic list comprehension
+doubles = [x * 2 for x in range(1, 11)] # Output: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+triples = [y * 3 for y in range(1, 11)] # Output: [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+squares = [z * z for z in range(1, 11)] # Output: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 
-# for x in range(1,11):
-#     doubles.append(x * 2)
+print(doubles)
+print(triples)
+print(squares)
 
-# fruits = [fruit.upper() for fruit in ["apple", "banana", "cherry"]]
-# print(fruits)
+# Transforming elements
+fruits_upper = [fruit.upper() for fruit in ["apple", "banana", "cherry"]]
+print(fruits_upper) # Output: ['APPLE', 'BANANA', 'CHERRY']
 
-# numbers = [1 , -2, 3, -4, 5, -6]
-# positive_nums = [num for num in numbers if num >= 0]
-# negative_nums = [num for num in numbers if num < 0]
-#
-# print(positive_nums)
-# print(negative_nums)
+# Filtering elements
+numbers = [1, -2, 3, -4, 5, -6]
+positive_nums = [num for num in numbers if num >= 0] # Output: [1, 3, 5]
+negative_nums = [num for num in numbers if num < 0]  # Output: [-2, -4, -6]
+
+print(positive_nums)
+print(negative_nums)
 ```
 
------
+---
 
-## Match-Case Statement (Switch)
+## 15. Match-Case Statement (Switch)
 
-An alternative to using many `elif` statements. Executes code if a value matches a 'case'. Benefits include cleaner and more readable syntax. (Available in Python 3.10+)
+An alternative to using many `elif` statements, offering cleaner and more readable syntax for conditional execution based on value matching.
 
-```python
-# ----------------------Match-case statement (switch)--------------------
+Python
 
-"""Match-case statement (switch) = An alternative to using many 'elif' statements
-                                   Execute some code if a value matches a 'case'
-                                   Benefits: cleaner and syntax is more readable"""
+```
+def day_of_week(day_num):
+    match day_num:
+        case 1:
+            return 'Monday'
+        case 2:
+            return 'Tuesday'
+        case 3:
+            return 'Wednesday'
+        case 4:
+            return 'Thursday'
+        case 5:
+            return 'Friday'
+        case 6:
+            return 'Saturday'
+        case 7:
+            return 'Sunday'
+        case _: # Default case, like `else`
+            return 'Unknown'
 
+print(day_of_week(1)) # Output: Monday
 
-# def day_of_week(day):
-#     match day:
-#         case 1:
-#             return 'Monday'
-#         case 2:
-#             return 'Tuesday'
-#         case 3:
-#             return 'Wednesday'
-#         case 4:
-#             return 'Thursday'
-#         case 5:
-#             return 'Friday'
-#         case 6:
-#             return 'Saturday'
-#         case 7:
-#             return 'Sunday'
-#         case _:
-#             return 'Unknown'
-#
-# print(day_of_week(1))
+def is_weekend(day_name):
+    match day_name:
+        case 'Saturday' | 'Sunday': # Multiple cases with `|`
+            return True
+        case 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday':
+            return False
+        case _:
+            return False
 
-# def is_weekend(day):
-#     match day:
-#         case 'Saturday' | 'Sunday':
-#             return True
-#         case 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday':
-#             return False
-#         case _:
-#             return False
+print(is_weekend('Saturday')) # Output: True
 ```
 
------
+---
 
-## Modules
+## 16. Modules
 
-A file containing code you want to include in your program. Use `import` to include a module (built-in or your own). Useful to break up a large program into reusable separate files.
+A module is a file containing Python code (variables, functions, classes, etc.) that you can include in your program using `import`. They are useful for breaking up large programs into reusable, separate files.
 
-**`example.py` (simulated module file):**
+**Example: `example.py`**
 
-```python
-# ----------------------module--------------------------------
+Python
 
-"""module = a file containing code you want to include in your program
-            use 'import' to include a module (built-in or your own)
-            useful to break up a large program reusable separate files"""
-
+```
 # example.py
-
-"""pi = 3.14159
+pi = 3.14159
 
 def square(x):
     return x ** 2
@@ -935,344 +860,396 @@ def circumference(radius):
     return 2 * pi * radius
 
 def area(radius):
-    return pi * radius ** 2"""
+    return pi * radius ** 2
 ```
 
-**`main.py` (simulated main program file):**
+**Example: `main.py`**
 
-```python
+Python
+
+```
 # main.py
+import example # Imports the entire module
 
-# import example
-#
-# result = example.pi
-# result = example.square(3)
-# result = example.cube(3)
-# result = example.circumference(3)
-#
-# print(result)
+result_pi = example.pi
+result_square = example.square(3)
+result_cube = example.cube(3)
+result_circumference = example.circumference(3)
+result_area = example.area(3)
+
+print(f"PI: {result_pi}")
+print(f"Square of 3: {result_square}")
+print(f"Cube of 3: {result_cube}")
+print(f"Circumference of radius 3: {result_circumference}")
+print(f"Area of radius 3: {result_area}")
 ```
 
------
+---
 
-## Scope Resolution (LEGB)
+## 17. Variable Scope & Scope Resolution (LEGB Rule)
 
-`variable scope`: Where a variable is visible and accessible.
-`scope resolution`: The order in which Python looks for variables:
+Variable scope defines where a variable is visible and accessible in your code.
 
-  - `L`: Local
-  - `E`: Enclosed (nonlocal)
-  - `G`: Global
-  - `B`: Built-in
+Scope resolution in Python follows the LEGB rule:
 
-<!-- end list -->
+1. **L**ocal: Defined inside a function.
+    
+2. **E**nclosed: Defined in a non-local, non-global scope (e.g., a nested function).
+    
+3. **G**lobal: Defined at the top level of a module.
+    
+4. **B**uilt-in: Pre-defined names in Python (e.g., `print`, `len`).
+    
 
-```python
-# ------------------------scope resolution------------------------------
+Python
 
-"""variable scope = where a variable is visible and accessible
-   scope resolution = (LEGB) Local -> Enclosed -> Global -> Built-in"""
+```
+# Global scope
+global_var = "I'm global"
+
+def outer_function():
+    # Enclosed scope
+    enclosed_var = "I'm enclosed"
+
+    def inner_function():
+        # Local scope
+        local_var = "I'm local"
+        print(local_var)
+        print(enclosed_var)
+        print(global_var)
+
+    inner_function()
+
+outer_function()
+# print(local_var) # This would cause an error as local_var is not accessible here
 ```
 
------
+---
 
-## `if __name__ == "__main__"`
+## 18. `if __name__ == "__main__"`
 
-A common Python idiom. Code inside this block only runs when the script is executed directly (not when imported as a module).
+This conditional statement is a common Python idiom that checks if the script is being run directly (as the main program) or imported as a module into another script.
 
-```python
-# ------------------------if __name__ == __main__------------------------------
+**Benefits:**
 
-"""if __name__ == __main__ : (this script can be imported OR run standalone)
-                              Functions and classes in this module can be reused
-                              without the main block of code executing"""
+- **Modularity:** Allows a script to be used both as a standalone program and as a reusable module.
+    
+- **Readability:** Clearly separates the executable part of the code from the module's definitions.
+    
+- **No Global Variables Execution:** Prevents code within the `if` block from running when the file is imported.
+    
+- **Avoids Unintended Execution:** Useful for libraries or modules where you might want to display a help page or run tests only when the library is executed directly.
+    
 
-"""Good practice (code is modular,
-                  helps readability,
-                  leaves no global variables
-                  avoid unintended execution)"""
+**Structure:**
 
-"""ex: library = Import library for functionality
-                  when running library directly, display a help page"""
+Python
 
-# def main():
-#     # Program goes here
-#
-# if __name__ == "__main__":
-#     main()
+```
+# my_module.py
+
+def main():
+    """Main execution block of the script."""
+    print("This code runs when my_module.py is executed directly.")
+
+def some_function():
+    """A function that can be imported and reused."""
+    return "This function can be called from other scripts."
+
+if __name__ == "__main__":
+    main() # Call the main function if the script is run directly
 ```
 
------
+If you `import my_module` into another file, `some_function()` will be available, but `main()` will not automatically execute.
 
-## Object-Oriented Programming (OOP)
+---
 
-### Classes and Objects
+## 19. Object-Oriented Programming (OOP)
 
-An **`object`** is a "bundle" of related attributes (variables) and methods (functions). A **`class`** is a "blueprint" used to design the structure and layout of an object.
+OOP is a programming paradigm based on the concept of "objects," which are bundles of related attributes (variables) and methods (functions).
 
-```python
-# -----------------------------OOP-----------------------------------------
+### Object & Class
 
-"""object = A "bundle" of related attributes (variables) and methods (functions)
-            Ex. phone, cup, book
-            You need a "clas" to create many object"""
+- **Object:** An instance of a class. It represents a real-world entity with its own state (attributes) and behavior (methods).
+    
+- **Class:** A blueprint or template used to design the structure and layout of objects.
+    
 
-"""class = (blueprint) used to design the structure and layout of an object"""
+**Example: `car.py`**
 
-# # car.py file
-# class Car:
-#     def __init__(self, model, year, color, for_sale):          # constructor
-#         self.model = model
-#         self.year = year
-#         self.color = color
-#         self.for_sale = for_sale
-#
-#     def drive(self):
-#         print(f"You drive the {self.model}")
-#
-#     def stop(self):
-#         print(f"You stop the {self.model}")
-#
-# #--------------------------------------------------------------------
-# # main.py
-#
-# # from car import Car
-#
-# car1 = Car('Mustang', 2024, "red", False)
-# car2 = Car('Mustang', 2025, "red", True)
-#
-# car2.drive()
-# car1.drive()
-# car1.stop()
-# car2.stop()
+Python
+
+```
+# car.py
+class Car:
+    def __init__(self, model, year, color, for_sale): # Constructor method
+        self.model = model
+        self.year = year
+        self.color = color
+        self.for_sale = for_sale
+
+    def drive(self):
+        print(f"You drive the {self.model}")
+
+    def stop(self):
+        print(f"You stop the {self.model}")
+```
+
+**Example: `main.py`**
+
+Python
+
+```
+# main.py
+# from car import Car # Assuming car.py is in the same directory
+
+car1 = Car('Mustang', 2024, "red", False) # Creating an object (instance) of Car
+car2 = Car('Tesla', 2025, "white", True)
+
+car2.drive() # Output: You drive the Tesla
+car1.drive() # Output: You drive the Mustang
+car1.stop()  # Output: You stop the Mustang
+car2.stop()  # Output: You stop the Tesla
 ```
 
 ### Class Variables
 
-Variables shared among all instances of a class, defined outside the constructor.
+Variables that are shared among all instances (objects) of a class. They are defined outside the constructor and within the class.
 
-```python
-# -----------------------------class variables-----------------------------------------
+Python
 
-"""class variables = Shared among all instance of a class
-                      Define outside the constructor
-                      Allow you to share data among all objects created from that class"""
+```
+class Student:
+    class_year = 2024  # Class variable
+    num_students = 0   # Class variable
 
-# class Student:
-#
-#     class_year = 2024
-#     num_students = 0
-#
-#     def __init__(self, name, age):
-#         self.name = name
-#         self.age = age
-#         Student.num_students += 1
-#
-# student1 = Student("John", 22)
-# student2 = Student("Wick", 35)
-# student3 = Student("Dasuni", 45)
-#
-# print(student1.name)
-# print(student1.age) # instant variable
-# print(Student.class_year) # class variable
-# print(f"My Gratuating class of {Student.class_year} has {Student.num_students} students")
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        Student.num_students += 1 # Increment class variable for each new student
+
+student1 = Student("John", 22)
+student2 = Student("Wick", 35)
+student3 = Student("Dasuni", 45)
+
+print(student1.name)         # Instance variable: John
+print(student1.age)          # Instance variable: 22
+print(Student.class_year)    # Class variable: 2024
+print(f"My Graduating class of {Student.class_year} has {Student.num_students} students")
+# Output: My Graduating class of 2024 has 3 students
 ```
 
 ### Inheritance
 
-Allows a class to inherit attributes from another class, promoting code reusability and extensibility. Syntax: `class Child(Parent)`.
+Allows a class (child/subclass) to inherit attributes and methods from another class (parent/superclass). This promotes code reusability and extensibility.
 
-```python
-# -----------------------------Inheritance-----------------------------------------
+Syntax: `class Child(Parent):`
 
-"""Inheritance = Allows a class to inherit attributes from another class
-                  Helps with code reusability and extensibility
-                  class Child(Parent)"""
+Python
 
-# class Animal:
-#     def __init__(self, name):
-#         self.name = name
-#         self.is_alive = True
-#
-#     def eat(self):
-#         print(f"{self.name} is eating.")
-#
-#     def sleep(self):
-#         print(f"{self.name} is sleeping.")
-#
-# class Dog(Animal):
-#     def speak(self):
-#         print("WOOLF")
-#
-# class Cat(Animal):
-#     def speak(self):
-#         print("Meow")
-#
-# class Mouse(Animal):
-#     def speak(self):
-#         print("Chick")
-#
-# dog = Dog("Tommy")
-#
-# print(dog.name)
-# print(dog.is_alive)
-# dog.eat()
-# dog.sleep()
+```
+class Animal:
+    def __init__(self, name):
+        self.name = name
+        self.is_alive = True
+
+    def eat(self):
+        print(f"{self.name} is eating.")
+
+    def sleep(self):
+        print(f"{self.name} is sleeping.")
+
+class Dog(Animal): # Dog inherits from Animal
+    def speak(self):
+        print("WOOLF!")
+
+class Cat(Animal): # Cat inherits from Animal
+    def speak(self):
+        print("Meow!")
+
+dog = Dog("Tommy")
+
+print(dog.name)      # Output: Tommy (inherited attribute)
+print(dog.is_alive)  # Output: True (inherited attribute)
+dog.eat()            # Output: Tommy is eating. (inherited method)
+dog.sleep()          # Output: Tommy is sleeping. (inherited method)
+dog.speak()          # Output: WOOLF! (Dog's own method)
 ```
 
 ### Multiple Inheritance
 
-Inheriting from more than one parent class. Syntax: `class Child(Parent1, Parent2)`.
+A class can inherit from more than one parent class.
 
-```python
-# -----------------------------multiple Inheritance-----------------------------------------
+Syntax: `class Child(Parent1, Parent2):`
 
-"""multiple inheritance = inherit from more than one parent class
-                          C(A, B)"""
+Python
 
-# class Prey:
-#     def flee(self):
-#         print("This animal is fleeing")
-#
-# class Predator:
-#     def hunt(self):
-#         print("This animal is hunting")
-#
-# class Rabbit(Prey):
-#     pass
-#
-# class Hawk(Predator):
-#     pass
-#
-# class Fish(Prey, Predator):
-#     pass
-#
-# rabbit = Rabbit()
-# hawk = Hawk()
-# fish = Fish()
-#
-# rabbit.flee()
-# hawk.hunt()
-# fish.hunt()
-# fish.flee()
+```
+class Prey:
+    def flee(self):
+        print("This animal is fleeing.")
+
+class Predator:
+    def hunt(self):
+        print("This animal is hunting.")
+
+class Rabbit(Prey):
+    pass
+
+class Hawk(Predator):
+    pass
+
+class Fish(Prey, Predator): # Fish inherits from both Prey and Predator
+    pass
+
+rabbit = Rabbit()
+hawk = Hawk()
+fish = Fish()
+
+rabbit.flee() # Output: This animal is fleeing.
+hawk.hunt()   # Output: This animal is hunting.
+fish.hunt()   # Output: This animal is hunting.
+fish.flee()   # Output: This animal is fleeing.
 ```
 
 ### Multilevel Inheritance
 
-Inheriting from a parent which itself inherits from another parent. Syntax: `C(B) <- B(A) <- A`.
+A class inherits from a parent, which in turn inherits from another parent.
 
-```python
-# -----------------------------multilevel Inheritance-----------------------------------------
+Syntax: `C(B) <- B(A) <- A`
 
-"""multilevel inheritance = inherit from a parent which inherits from anther parent
-                            C(B) <- B(A) <- A"""
+Python
 
-# class Animal:
-#
-#     def __init__(self, name):
-#         self.name = name
-#
-#     def eat(self):
-#         print(f"{self.name} is eating...")
-#
-#     def sleep(self):
-#         print(f"{self.name} is sleeping...")
-#
-# class Prey(Animal):
-#     def flee(self):
-#         print(f"{self.name} is fleeing")
-#
-# class Predator(Animal):
-#     def hunt(self):
-#         print(f"{self.name} is hunting")
-#
-# class Rabbit(Prey):
-#     pass
-#
-# class Hawk(Predator):
-#     pass
-#
-# class Fish(Prey, Predator):
-#     pass
-#
-# rabbit = Rabbit("Bugs")
-# hawk = Hawk("Tony")
-# fish = Fish("Nemo")
-#
-# rabbit.flee()
-# rabbit.sleep()
-# rabbit.eat()
-# print()
-#
-# hawk.hunt()
-# hawk.sleep()
-# hawk.eat()
-# print()
-#
-# fish.hunt()
-# fish.sleep()
-# fish.eat()
-# fish.flee()
+```
+class Organism: # Grandparent class
+    def __init__(self, name):
+        self.name = name
+        print(f"{self.name} is an organism.")
+
+class Animal(Organism): # Parent class
+    def eat(self):
+        print(f"{self.name} is eating...")
+
+    def sleep(self):
+        print(f"{self.name} is sleeping...")
+
+class Dog(Animal): # Child class inherits from Animal, which inherits from Organism
+    def bark(self):
+        print(f"{self.name} is barking!")
+
+my_dog = Dog("Buddy") # Output: Buddy is an organism.
+my_dog.eat()          # Output: Buddy is eating...
+my_dog.sleep()        # Output: Buddy is sleeping...
+my_dog.bark()         # Output: Buddy is barking!
 ```
 
 ### `super()` Function
 
-Used in a child class to call methods from a parent class (superclass), allowing you to extend the functionality of a child class.
+The `super()` function is used in a child class to call methods from its parent class (superclass). It allows you to extend or customize the functionality of the parent class methods.
 
-```python
-# -----------------------------super-----------------------------------------
-#
-# """super() = Function used in a child class to call methods from a parent class (superclass)
-#               Allows you to extend the functionality of a child class"""
-#
-# class Shape:
-#     def __init__(self, color, is_filled):
-#         self.color = color
-#         self.is_filled = is_filled
-#
-#     def describe(self):
-#         print(f"It is {self.color} and {'filled' if self.is_filled else 'not filled'}.")
-#
-#
-# class Circle(Shape):
-#     def __init__(self, color, is_filled, radius):
-#         super().__init__(color, is_filled)
-#         self.radius = radius
-#
-#     def describe(self):    # method overriding
-#         super().describe()
-#         print(f"It is a circle with area of {3.14 * self.radius * self.radius}cm^2.")
-#
-# class Square(Shape):
-#     def __init__(self, color, is_filled, width):
-#         super().__init__(color, is_filled)
-#         self.width = width
-#
-#     def describe(self):    # method overriding
-#         super().describe()
-#         print(f"It is a Square with area of {self.width * self.width}cm^2.")
-#
-# class Rectangle(Shape):
-#     def __init__(self, color, is_filled, width, height):
-#         super().__init__(color, is_filled)
-#         self.width = width
-#         self.height = height
-#
-#     def describe(self):    # method overriding
-#         super().describe()
-#         print(f"It is a Rectangle with area of {self.width * self.height}cm^2.")
-#
-# circle = Circle(color = "red", is_filled = True, radius = 5)
-# square = Square(color = "red", is_filled = True, width = 5)
-# rectangle = Rectangle(color = "red", is_filled = True, width = 5, height = 3)
-#
-# # print(circle.color)
-# # print(circle.is_filled)
-# # print(f"{square.color} cm")
-#
-# circle.describe()
-# print()
-# square.describe()
-# print()
-# rectangle.describe()
+Python
+
+```
+class Shape:
+    def __init__(self, color, is_filled):
+        self.color = color
+        self.is_filled = is_filled
+
+    def describe(self):
+        print(f"It is {self.color} and {'filled' if self.is_filled else 'not filled'}.")
+
+
+class Circle(Shape):
+    def __init__(self, color, is_filled, radius):
+        super().__init__(color, is_filled) # Call parent's __init__
+        self.radius = radius
+
+    def describe(self):   # Method overriding
+        super().describe() # Call parent's describe method
+        print(f"It is a circle with area of {round(3.14 * self.radius ** 2, 2)}cm^2.")
+
+class Square(Shape):
+    def __init__(self, color, is_filled, width):
+        super().__init__(color, is_filled) # Call parent's __init__
+        self.width = width
+
+    def describe(self):   # Method overriding
+        super().describe() # Call parent's describe method
+        print(f"It is a Square with area of {self.width * self.width}cm^2.")
+
+circle = Circle(color="red", is_filled=True, radius=5)
+square = Square(color="blue", is_filled=False, width=7)
+
+circle.describe()
+# Output:
+# It is red and filled.
+# It is a circle with area of 78.5cm^2.
+
+print()
+
+square.describe()
+# Output:
+# It is blue and not filled.
+# It is a Square with area of 49cm^2.
+```
+
+### Polymorphism
+
+The Greek word "polymorphism" means "to have many forms." In OOP, it refers to the ability of different objects to respond to the same method call in their own unique ways.
+
+**Two main ways to achieve polymorphism in Python:**
+
+1. **Inheritance:** An object of a child class can be treated as an object of its parent class, and methods are overridden.
+    
+2. **"Duck Typing":** If an object walks like a duck and quacks like a duck, then it's a duck. This means objects don't need to explicitly inherit from a common base class as long as they have the necessary methods/attributes.
+    
+
+Python
+
+```
+# Polymorphism through Inheritance (with Abstract Base Classes for clear interface)
+from abc import ABC, abstractmethod
+
+class Shape(ABC): # Abstract Base Class
+    @abstractmethod
+    def area(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius ** 2
+
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
+
+    def area(self):
+        return self.side ** 2
+
+class Triangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def area(self):
+        return 0.5 * self.base * self.height
+
+# Pizza is a Circle and also has its own topping
+class Pizza(Circle):
+    def __init__(self, topping, radius):
+        self.topping = topping
+        super().__init__(radius) # Call parent (Circle) constructor
+
+shapes = [Circle(4), Square(5), Triangle(6, 7), Pizza("pepperoni", 9)]
+
+for shape in shapes:
+    print(f"Area: {round(shape.area(), 2)}cm^2")
+# Output:
+# Area: 50.24cm^2
+# Area: 25cm^2
+# Area: 21.0cm^2
+# Area: 254.34cm^2
 ```

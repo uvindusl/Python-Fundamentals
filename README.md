@@ -4,7 +4,7 @@ Python Fundamentals
 
 ## Table of Contents
 
-  - [Arithmetic & Math Operations](https://www.google.com/search?q=%23arithmetic--math-operations)
+  - [Arithmetic & Math Operations](Arithmetic&MathOperations)
   - [Logical Operators](https://www.google.com/search?q=%23logical-operators)
   - [Conditional Expressions (Ternary Operators)](https://www.google.com/search?q=%23conditional-expressions-ternary-operators)
   - [String Methods](https://www.google.com/search?q=%23string-methods)

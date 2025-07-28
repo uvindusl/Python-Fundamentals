@@ -739,3 +739,30 @@ def area(radius):
 # car1.drive()
 # car1.stop()
 # car2.stop()
+
+# -----------------------------class variables-----------------------------------------
+
+"""class variables = Shared among all instance of a class
+                     Define outside the constructor
+                     Allow you to share data among all objects created from that class"""
+
+# class Student:
+#
+#     class_year = 2024
+#     num_students = 0
+#
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#         Student.num_students += 1
+#
+# student1 = Student("John", 22)
+# student2 = Student("Wick", 35)
+# student3 = Student("Dasuni", 45)
+#
+# print(student1.name)
+# print(student1.age) # instant variable
+# print(Student.class_year) # class variable
+# print(f"My Gratuating class of {Student.class_year} has {Student.num_students} students")
+#
+#

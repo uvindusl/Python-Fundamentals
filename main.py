@@ -687,3 +687,55 @@ def area(radius):
 
 # ------------------------if __name__ == __main__------------------------------
 
+"""if __name__ == __main__ : (this script can be imported OR run standalone)
+                              Functions and classes in this module can be reused
+                              without the main block of code executing"""
+
+"""Good practice (code is modular,
+                  helps readability,
+                  leaves no global variables
+                  avoid unintended execution)"""
+
+"""ex: library = Import library for functionality
+                 when running library directly, display a help page"""
+
+# def main():
+#     # Program goes here
+#
+# if __name__ == "__main__":
+#     main()
+
+# -----------------------------OOP-----------------------------------------
+
+"""object = A "bundle" of related attributes (variables) and methods (functions)
+            Ex. phone, cup, book
+            You need a "clas" to create many object"""
+
+"""class = (blueprint) used to design the structure and layout of an object"""
+
+# # car.py file
+# class Car:
+#     def __init__(self, model, year, color, for_sale):          # constructor
+#         self.model = model
+#         self.year = year
+#         self.color = color
+#         self.for_sale = for_sale
+#
+#     def drive(self):
+#         print(f"You drive the {self.model}")
+#
+#     def stop(self):
+#         print(f"You stop the {self.model}")
+#
+# #--------------------------------------------------------------------
+# # main.py
+#
+# # from car import Car
+#
+# car1 = Car('Mustang', 2024, "red", False)
+# car2 = Car('Mustang', 2025, "red", True)
+#
+# car2.drive()
+# car1.drive()
+# car1.stop()
+# car2.stop()

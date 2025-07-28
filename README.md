@@ -3,8 +3,8 @@
 
 ## Table of Contents
 
-  - [Arithmetic & Math Operations](#1.Arithmetic-&-Math-Operations)  
-  - [Logical Operators](#logical-operators)  
+  - [Arithmetic & Math Operations](#1-arithmetic--math-operations)  
+  - [Logical Operators](#2-logical-operators)  
   - [Conditional Expressions (Ternary Operators)](#conditional-expressions-ternary-operators)  
   - [String Methods](#string-methods)  
   - [String Indexing](#string-indexing)  

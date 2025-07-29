@@ -1001,25 +1001,129 @@ def area(radius):
                  Object must have the minimum necessary attributes/methods
                  "If it looks like a duck and quacks like a duck, it must be a duck." """
 
-class Animal:
-    alive = True
+# class Animal:
+#     alive = True
+#
+# class Dog(Animal):
+#     def speak(self):
+#         print("Dog")
+#
+# class Cat(Animal):
+#     def speak(self):
+#         print("Cat")
+#
+# class Car:
+#     alive = True
+#
+#     def speak(self):
+#         print("Car")
+#
+# animals = [Dog(), Cat(), Car()]
+#
+# for animal in animals:
+#     animal.speak()
+#     print(animal.alive)
 
-class Dog(Animal):
-    def speak(self):
-        print("Dog")
+# -----------------------------Static methods-----------------------------------------
 
-class Cat(Animal):
-    def speak(self):
-        print("Cat")
+"""Static methods = A method that belongs to a class rather than any object from that class (instance)
+                    usually used for general utility functions"""
 
-class Car:
-    alive = True
+"""Instance methods = Best for operations on instance of the class (object)"""
 
-    def speak(self):
-        print("Car")
+"""Static methods = Best for utility functions that do not need access to class data"""
 
-animals = [Dog(), Cat(), Car()]
+# class Employee:
+#
+#     def __init__(self, name, position):
+#         self.name = name
+#         self.position = position
+#
+#     def get_info(self):
+#         return f"{self.name} = {self.position}"
+#
+#     @staticmethod
+#     def is_valid_position(position):
+#         valid_positions = ["Manager", "Cashier", "Cook", "Janitor"]
+#         return position in valid_positions
+#
+# employee1 = Employee("Janitor", "Manager")
+# employee2 = Employee("Bro Code", "Cook")
+#
+# print(Employee.is_valid_position("Rocket Scientist"))
+# print(employee1.get_info())
+# print(employee2.get_info())
 
-for animal in animals:
-    animal.speak()
-    print(animal.alive)
+# -----------------------------Class methods-----------------------------------------
+
+"""Class methods = Allow operations related to the class itself
+                   Take (cls) as the first parameter, which represents the class itself"""
+
+"""class methods = Best for class-level data or require access to the class itself"""
+
+# class Student:
+#
+#     count = 0
+#     total_gpa = 0
+#
+#     def __init__(self, name, gpa):
+#         self.name = name
+#         self.gpa = gpa
+#         Student.count += 1
+#         Student.total_gpa += gpa
+#
+#     # INSTANCE METHOD
+#     def get_info(self):
+#         return f"{self.name}, GPA: {self.gpa}"
+#
+#     @classmethod
+#     def get_count(cls):
+#         return f"Total # of students: {cls.count}"
+#
+#     @classmethod
+#     def get_avg_gpa(cls):
+#         if cls.count == 0:
+#             return 0
+#         else:
+#             return f"{cls.total_gpa / cls.count}"
+#
+# student1 = Student("Bro code", 4.0)
+# student2 = Student("Bro", 3.2)
+#
+# print(Student.get_count())
+# print(Student.get_avg_gpa())
+
+# -----------------------------Magic methods-----------------------------------------
+
+"""Magic methods = Dunder methods (double underscode) __init__, __str__, __eq__
+                   They are automatically called by many of Python's built in operations
+                   They allow developers to define or customized the behavior of object"""
+
+# class Student:
+#
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#
+#     def __str__(self):
+#         return f'Student {self.name}, age {self.age}'
+#
+#     def __eq__(self, other):
+#         return self.name == other.name
+#
+#     def __gt__(self, other):
+#         return self.age > other.age
+#
+# student1 = Student('Bro', 22)
+# student2 = Student('Code', 33)
+
+class Book:
+
+    def __init__(self, title, author, num_pages):
+        self.title = title
+        self.author = author
+        self.num_pages = num_pages
+
+
+book1 = Book("The Book", "The Book", 10)
+book2 = Book("Test", "author", 20)

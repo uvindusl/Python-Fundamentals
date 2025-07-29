@@ -1218,3 +1218,214 @@ def area(radius):
                (ZeroDivisionError, TypeError, ValueError)
                1. try, 2. except, 3. finally"""
 
+# try:
+#     number = int(input("Enter a number: "))
+#     print(1/number)
+# except ZeroDivisionError:
+#     print("You can't divide by zero")
+# except ValueError:
+#     print("You didn't enter a number")
+# except Exception:
+#     print("Something went wrong!")
+# finally:
+#     print("The program has finished running")
+
+# ----------------------------- File detection -----------------------------------------
+
+# import os
+#
+# file_path = "stuff/test.txt"
+#
+# if os.path.exists(file_path):
+#     print("File exists")
+#
+#     if os.path.isfile(file_path):
+#         print("That is a file")
+#     elif os.path.isdir(file_path):
+#         print("That is a directory")
+# else:
+#     print("File does not exist")
+
+# ----------------------------- File Writing -----------------------------------------
+
+# w -> overwrite
+# employees = ["Eugene", "Squidward", "Spongebob" , "Patrick"]
+
+# file_path = "output.txt"
+
+# try:
+#     with open(file_path, "w") as file:
+#         for employee in employees:
+#             file.write(employee + "\n")
+#         print(f"txt file '{file_path}' was created")
+# except FileExistsError:
+#     print("That file already exists!")
+
+#-------------------------------------------------------------------------
+
+# import json
+#
+# employee = {
+#     "name":"Spongebob",
+#     "age":30,
+#     "job":"cook"
+# }
+#
+# file_path = "output.json"
+#
+# try:
+#     with open(file_path, "w") as file:
+#         json.dump(employee, file, indent=4)
+#         print(f"txt file '{file_path}' was created")
+# except FileExistsError:
+#     print("That file already exists!")
+
+#-------------------------------------------------------------------------
+
+# import csv
+#
+# employees = [["Name", "Age", "Job"],
+#              ["Spongebob", 30, "Cook"],
+#              ["Patrick", 37, "Unemployeed"],
+#              ["Sandy", 27, "Scientist"]]
+#
+# file_path = "output.csv"
+#
+# try:
+#     with open(file_path, "w", newline="") as file:
+#         writer = csv.writer(file)
+#         for row in employees:
+#             writer.writerow(row)
+#         print(f"txt file '{file_path}' was created")
+# except FileExistsError:
+#     print("That file already exists!")
+
+# ----------------------------- File reading -----------------------------------------
+
+# filepath = "output.txt"
+#
+# try:
+#     with open(filepath, "r") as file:
+#         content = file.read()
+#         print(content)
+# except FileNotFoundError:
+#     print("File not found")
+# except PermissionError:
+#     print("Permission denied")
+
+#-------------------------------------------------------------
+
+# import json
+#
+# filepath = "output.json"
+#
+# try:
+#     with open(filepath, "r") as file:
+#         content = json.load(file)
+#         # print(content)
+#         print(content["job"])
+# except FileNotFoundError:
+#     print("File not found")
+# except PermissionError:
+#     print("Permission denied")
+
+#-------------------------------------------------------------
+
+# import csv
+#
+# filepath = "output.csv"
+#
+# try:
+#     with open(filepath, "r") as file:
+#         content = csv.reader(file)
+#         for row in content:
+#             # print(row)
+#             print(row[2])
+# except FileNotFoundError:
+#     print("File not found")
+# except PermissionError:
+#     print("Permission denied")
+
+# ----------------------------- dates & times -------------------------------------
+
+# import datetime
+#
+# date = datetime.date(2025,1,2)
+# today = datetime.date.today()
+#
+# time = datetime.time(10,20)
+# now = datetime.datetime.now()
+#
+# now = now.strftime("%H:%M:%S %d-%m-%Y")
+#
+# target_datetime = datetime.datetime(2020,1,2, 12, 30, 1)
+# current_datetime = datetime.datetime.now()
+#
+# if target_datetime < current_datetime:
+#     print("Target date is passed")
+# else:
+#     print("Target date is NOT passed")
+#
+#  print(now)
+
+# ----------------------------- multithreading -------------------------------------
+
+"""multithreading = Used to perform multiple tasks concurrently (multitasking)
+                    Good for I/O bound tasks like reading files or fetching data from APIs
+                    threading. Thread(target=my_function)"""
+
+# import threading
+# import time
+#
+# def walk_dog(first, second):
+#     time.sleep(8)
+#     print(f"You finished walking the dog {first} {second}")
+#
+# def take_out_trash():
+#     time.sleep(2)
+#     print("You take out the trash")
+#
+# def get_mail():
+#     time.sleep(4)
+#     print("You get the mail")
+#
+# chore1 = threading.Thread(target=walk_dog, args=("Scooby","Doo"))
+# chore1.start()
+#
+# chore2 = threading.Thread(target=take_out_trash)
+# chore2.start()
+#
+# chore3 = threading.Thread(target=get_mail)
+# chore3.start()
+#
+# chore1.join()
+# chore2.join()
+# chore3.join()
+#
+# print("All done")
+
+# ----------------------------- connecting API -------------------------------------
+
+import requests
+
+base_url ="https://pokeapi.co/api/v2"
+
+def get_pokemon_info(name):
+    url = f"{base_url}/pokemon/{name}"
+    response = requests.get(url)
+    # print(response)
+
+    if response.status_code == 200:
+        pokemon_data = response.json()
+        return pokemon_data
+    else:
+        print(f"Failed to retrieve data {response.status_code}")
+
+pokemon_name = "pikachu"
+pokemon_info = get_pokemon_info(pokemon_name)
+
+if pokemon_info:
+    print(f"Name: {pokemon_info["name"].capitalize()}")
+    print(f"Id: {pokemon_info["id"]}")
+    print(f"Height: {pokemon_info["height"]}")
+    print(f"Weight: {pokemon_info["weight"]}")

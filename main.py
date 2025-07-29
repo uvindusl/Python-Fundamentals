@@ -1186,3 +1186,35 @@ def area(radius):
 
 # print(rectangle.width)
 # print(rectangle.height)
+
+# ----------------------------- Decorator -----------------------------------------
+
+"""Decorator = A function that extends the behavior of another function
+               w/o modifying base function
+               Pass the base function as an argument to the decorator"""
+
+# def add_sprinkles(func):
+#     def wrapper(*args, **kwargs):
+#         print('Adding sprinkles')
+#         func(*args, **kwargs)
+#     return wrapper
+#
+# def add_fudge(func):
+#     def wrapper(*args, **kwargs):
+#         print('Adding fudge')
+#         func(*args, **kwargs)
+#     return wrapper
+#
+# @add_sprinkles
+# @add_fudge
+# def get_ice_cream(flavor):
+#     print(f"Here is your {flavor} ice cream 🍨")
+#
+# get_ice_cream("vanilla")
+
+# ----------------------------- Exception -----------------------------------------
+
+"""exception = An event that interrupts the flow of a program
+               (ZeroDivisionError, TypeError, ValueError)
+               1. try, 2. except, 3. finally"""
+

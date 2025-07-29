@@ -3,44 +3,45 @@
 
 ## Table of Contents
 
-  - [Arithmetic & Math Operations](#1-arithmetic--math-operations)  
-  - [Logical Operators](#2-logical-operators)  
-  - [Conditional Expressions (Ternary Operators)](#3-conditional-expressions-ternary-operators)  
-  - [String Methods](#4-string-methods--indexing)  
-  - [String Indexing](#4-string-methods--indexing)  
-  - [Format Specifiers](#5-format-specifiers)  
-  - [While Loops](#6-loops)  
-  - [For Loops](#6-loops)  
-  - [Countdown Timer Example](#6-loops)  
-  - [Nested Loops](#6-loops)  
-  - [Collections (Lists, Sets, Tuples)](#7-collections-lists-sets-and-tuples)  
-    - [Lists](#7-collections-lists-sets-and-tuples)  
-    - [Sets](#7-collections-lists-sets-and-tuples)  
-    - [Tuples](#7-collections-lists-sets-and-tuples)  
-    - [Shopping Cart Program Example](#7-collections-lists-sets-and-tuples)  
-  - [2D Collections](#8-2d-collections-nested-liststuples)  
-  - [Dictionaries](#9-dictionary-key-value)  
-    - [Concession Stand Program Example](#9-dictionary-key-value)  
-  - [Random Numbers](#10-random-numbers)  
-  - [Functions](#11-functions)  
-    - [Return Statement](#11-functions)  
-    - [Default Arguments](#11-functions)  
-    - [Keyword Arguments](#11-functions)  
-    - [Arbitrary Arguments (`*args`, `**kwargs`)](#11-functions)  
-  - [Iterables](#12-iterables)  
-  - [Membership Operators](#13-membership-operators)  
-  - [List Comprehension](#14-list-comprehension)  
-  - [Match-Case Statement (Switch)](#15-match-case-statement-switch)  
-  - [Modules](#16-modules)  
-  - [Scope Resolution (LEGB)](#17-variable-scope--scope-resolution-legb-rule)  
-  - [`if __name__ == "__main__"`](#18-if-__name__-==-__main__)  
-  - [Object-Oriented Programming (OOP)](#19-object-oriented-programming-oop)  
-    - [Classes and Objects](#19-object-oriented-programming-oop)  
-    - [Class Variables](#19-object-oriented-programming-oop)  
-    - [Inheritance](#19-object-oriented-programming-oop)  
-    - [Multiple Inheritance](#19-object-oriented-programming-oop)  
-    - [Multilevel Inheritance](#19-object-oriented-programming-oop)  
-    - [`super()` Function](#19-object-oriented-programming-oop)    
+  - [Arithmetic & Math Operations](#1.Arithmetic-&-Math-Operations)  
+  - [Logical Operators](#logical-operators)  
+  - [Conditional Expressions (Ternary Operators)](#conditional-expressions-ternary-operators)  
+  - [String Methods](#string-methods)  
+  - [String Indexing](#string-indexing)  
+  - [Format Specifiers](#format-specifiers)  
+  - [While Loops](#while-loops)  
+  - [For Loops](#for-loops)  
+  - [Countdown Timer Example](#countdown-timer-example)  
+  - [Nested Loops](#nested-loops)  
+  - [Collections (Lists, Sets, Tuples)](#collections-lists-sets-tuples)  
+    - [Lists](#lists)  
+    - [Sets](#sets)  
+    - [Tuples](#tuples)  
+    - [Shopping Cart Program Example](#shopping-cart-program-example)  
+  - [2D Collections](#2d-collections)  
+  - [Dictionaries](#dictionaries)  
+    - [Concession Stand Program Example](#concession-stand-program-example)  
+  - [Random Numbers](#random-numbers)  
+  - [Functions](#functions)  
+    - [Return Statement](#return-statement)  
+    - [Default Arguments](#default-arguments)  
+    - [Keyword Arguments](#keyword-arguments)  
+    - [Arbitrary Arguments (`*args`, `**kwargs`)](#arbitrary-arguments-args-kwargs)  
+  - [Iterables](#iterables)  
+  - [Membership Operators](#membership-operators)  
+  - [List Comprehension](#list-comprehension)  
+  - [Match-Case Statement (Switch)](#match-case-statement-switch)  
+  - [Modules](#modules)  
+  - [Scope Resolution (LEGB)](#scope-resolution-legb)  
+  - [`if __name__ == "__main__"`](#if-__name__-==-__main__)  
+  - [Object-Oriented Programming (OOP)](#object-oriented-programming-oop)  
+    - [Classes and Objects](#classes-and-objects)  
+    - [Class Variables](#class-variables)  
+    - [Inheritance](#inheritance)  
+    - [Multiple Inheritance](#multiple-inheritance)  
+    - [Multilevel Inheritance](#multilevel-inheritance)  
+    - [`super()` Function](#super-function) 
+- [Advanced Python Concepts & Patterns](#20-advanced-python-concepts--patterns)
 
 ---
 
@@ -1253,3 +1254,168 @@ for shape in shapes:
 # Area: 21.0cm^2
 # Area: 254.34cm^2
 ```
+
+### Duck Typing
+
+Duck typing allows polymorphism without inheritance. If an object implements the necessary methods, it can be used regardless of its class.
+
+Python
+
+```
+class Dog:
+    def speak(self):
+        print("Dog")
+class Cat:
+    def speak(self):
+        print("Cat")
+class Car:
+    def speak(self):
+        print("Car")
+animals = [Dog(), Cat(), Car()]
+for animal in animals:
+    animal.speak()
+```
+
+## 20. Advanced Python Concepts & Patterns
+
+
+### Static Methods & Class Methods
+
+- **Static methods** are utility functions in a class.
+- **Class methods** operate on the class itself, not instances.
+
+Python
+
+```
+class Employee:
+    @staticmethod
+    def is_valid_position(position):
+        return position in ["Manager", "Cashier", "Cook", "Janitor"]
+
+class Student:
+    count = 0
+    @classmethod
+    def get_count(cls):
+        return cls.count
+```
+
+### Magic Methods (Dunder Methods)
+
+Customize object behavior by overriding special methods:
+
+Python
+
+```
+class Student:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def __str__(self):
+        return f'Student {self.name}, age {self.age}'
+    def __eq__(self, other):
+        return self.name == other.name
+```
+
+### @property Decorator
+
+Manage attribute access with getter/setter logic:
+
+Python
+
+```
+class Rectangle:
+    def __init__(self, width, height):
+        self._width = width
+        self._height = height
+    @property
+    def width(self):
+        return self._width
+    @width.setter
+    def width(self, value):
+        self._width = value
+```
+
+### Decorators
+
+Functions that extend the behavior of other functions:
+
+Python
+
+```
+def add_sprinkles(func):
+    def wrapper(*args, **kwargs):
+        print('Adding sprinkles')
+        func(*args, **kwargs)
+    return wrapper
+
+@add_sprinkles
+def get_ice_cream(flavor):
+    print(f"Here is your {flavor} ice cream 🍨")
+```
+
+### Exception Handling
+
+Python
+
+```
+try:
+    number = int(input("Enter a number: "))
+    print(1/number)
+except ZeroDivisionError:
+    print("You can't divide by zero")
+finally:
+    print("Program finished")
+```
+
+### File Detection, Writing, Reading
+
+Python
+
+```
+import os
+if os.path.exists("test.txt"):
+    print("File exists")
+
+with open("output.txt", "w") as file:
+    file.write("Hello!")
+with open("output.txt", "r") as file:
+    print(file.read())
+```
+
+### Dates & Times
+
+Python
+
+```
+import datetime
+now = datetime.datetime.now()
+print(now.strftime("%H:%M:%S %d-%m-%Y"))
+```
+
+### Multithreading
+
+Python
+
+```
+import threading
+def task():
+    print("Task running")
+t = threading.Thread(target=task)
+t.start()
+t.join()
+```
+
+### Connecting to APIs (requests)
+
+Python
+
+```
+import requests
+url = "https://pokeapi.co/api/v2/pokemon/pikachu"
+response = requests.get(url)
+if response.status_code == 200:
+    data = response.json()
+    print(data["name"], data["id"])
+```
+
+---

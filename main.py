@@ -1105,25 +1105,29 @@ def area(radius):
 #         self.name = name
 #         self.age = age
 #
-#     def __str__(self):
+#     def __str__(self): # this will print when we call method print(student1)
 #         return f'Student {self.name}, age {self.age}'
 #
-#     def __eq__(self, other):
+#     def __eq__(self, other): # print(student1 == student2) compare to object
 #         return self.name == other.name
 #
-#     def __gt__(self, other):
+#     def __gt__(self, other): # this grater than less than __lt__
 #         return self.age > other.age
 #
+#     def __add__(self, other): # add
+#         return self.age + other.age
+#
+#     def __contains__(self, keyword):
+#         return keyword in self.name
+#
+#     def __getitem__(self, key):
+#         if key == 'name':
+#             return self.name
+#         elif  key == 'age':
+#             return self.age
+#         else:
+#             return f"Key {key} is not found"
+
+
 # student1 = Student('Bro', 22)
 # student2 = Student('Code', 33)
-
-class Book:
-
-    def __init__(self, title, author, num_pages):
-        self.title = title
-        self.author = author
-        self.num_pages = num_pages
-
-
-book1 = Book("The Book", "The Book", 10)
-book2 = Book("Test", "author", 20)
